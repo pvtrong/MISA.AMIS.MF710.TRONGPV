@@ -1,0 +1,43 @@
+﻿.filter-bar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+
+    .filter-bar .filter-right {
+        position:absolute;
+        right: 16px;
+        display: flex;
+    }
+    .filter-bar .filter-right button{
+        margin-left: 10px;
+    }
+
+    .filter-bar .filter-right #btnDelete{
+        background-color: #ff0000;
+        background-image: url("../../content/icon/487-4874208_font-awesome-trash-can-png-download-delete-icon-removebg-preview.png");
+        background-size: 20px 20px;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: none;
+    }
+.paging-bar {
+    border-top: 2px solid #bbbbbb;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+}
+    .paging-bar .paging-record-info {
+        position: absolute;
+        left: 16px;
+    }
+
+    .paging-bar .paging-record-option {
+        margin:  auto 0px auto auto;
+    }
+
+    

@@ -1,0 +1,48 @@
+﻿input, select {
+    padding: 10px 16px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #c9ccd2;
+    width: 100%;
+    height: 32px;
+    box-sizing: border-box;
+}
+input[type=checkbox]{
+    height: 20px;
+    width: 20px;
+}
+
+    input[type=radio] {
+        height: 20px;
+        width: 20px;
+    }
+
+    input:focus, select:focus {
+        border-color: #019160;
+    }
+
+    input::placeholder {
+        font-size: 11px;
+        font-style: italic;
+    }
+
+    input[type=date], input[type=checkbox]{
+        cursor: pointer;
+    }
+
+.input-search {
+    padding-right: 40px;
+    max-width: 180px;
+    height: 32px;
+}
+
+.input-search2 {
+    padding-right: 40px;
+    max-width: 200px;
+    height: 32px;
+    margin-right: 20px;
+}
+
+
+
+

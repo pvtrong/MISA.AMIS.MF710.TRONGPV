@@ -1,0 +1,33 @@
+﻿.content {
+    position: absolute;
+    top: 51px;
+    
+    left: 179px;
+    width: calc(100% - 212px);
+    background-color: #ffffff;
+    padding:16px 16px 0 16px;
+}
+
+/*Page tile*/
+    .content .header-content {
+        padding: 8px 0 16px 0;
+        display: flex;
+        align-items: center;
+    }
+
+        .content .header-content .title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .content .header-content .content-feature{
+            position: absolute;
+            right: 16px;
+        }
+
+
+/* Paging */
+.content .paging-bar{
+    height: 50px;
+}
+

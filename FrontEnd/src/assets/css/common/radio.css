@@ -1,0 +1,21 @@
+﻿.m-radio-group{
+    display: flex;
+    height: 32px;
+}
+
+    .m-radio-group .m-radio-item{
+        display: flex;
+        align-items: center;
+    }
+
+input[type='radio']:after {
+    width: 18px;
+    height: 18px;
+    border-radius: 18px;
+    position: relative;
+    background-size: contain;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    cursor: pointer;
+}

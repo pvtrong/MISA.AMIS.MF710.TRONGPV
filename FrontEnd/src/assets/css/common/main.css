@@ -1,0 +1,59 @@
+﻿
+
+@import url('./common.css');
+@import url('./icon.css');
+@import url('./button.css');
+@import url('./input.css');
+@import url('./toolbar.css');
+@import url('./content.css');
+@import url('./grid.css');
+@import url('./content.css');
+@import url('./ui-custom.css');
+@import url('./radio.css');
+@import url('./checkbox.css');
+@import url('../../lib/plugin/all.css');
+body {
+    margin: 0 !important;
+    font-family: GoogleSans-Regular;
+    font-size: 13px;
+}
+
+
+
+@font-face {
+    font-family: 'GoogleSans-Regular';
+    src: url('../../content/font/notosans-regular.2cb88a13.woff2') ;
+}
+@font-face {
+    font-family: 'GoogleSans-Bold';
+    src: url('../../content/font/notosans-bold.3ede5aff.woff2');
+}
+@font-face {
+    font-family: 'GoogleSans-Italic';
+    src: url('../../content/font/notosans-italic.1c1aaac9.woff2') ;
+}
+@font-face {
+    font-family: 'GoogleSans-Light';
+    src: url('../../content/font/notosans-semibold.df3e6dc4.woff2') ;
+}
+
+::-webkit-scrollbar {
+    width: 5px !important;
+    height: 5px !important;
+    z-index: 1231232123421
+}
+
+::-webkit-scrollbar-track {
+    width:6px;
+    background-color: #bbb;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #808080;
+    border-radius: 8px
+}
+
+.grid-employee {
+    margin-top: 10px;
+    height: calc(100vh - 227px);
+}

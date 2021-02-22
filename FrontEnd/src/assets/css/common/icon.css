@@ -1,0 +1,21 @@
+﻿
+.icon-option-default-16 {
+    width: 16px;
+    height: 16px;
+    background-image: url('../../content/icon/Sprites.64af8f61.svg');
+    background-position: -1076px -32px  !important;
+    background-repeat: no-repeat;
+}
+
+
+.icon-add {
+    width: 16px;
+    height: 16px;
+    background-image: url('../../content/icon/add.png');
+}
+
+.icon-search {
+    background-image: url('../../content/icon/search.png');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 16px) center;
+}
