@@ -1,6 +1,7 @@
 <template>
 	<BaseCombobox
 		@setItemSelected3="setItemSelected3"
+		@setItemSelected4="setItemSelected4"
 		@setItemSelected2="setItemSelected"
 		:faCaretUp="faCaretUp"
 		:faCaretDown="faCaretDown"
@@ -29,6 +30,9 @@ export default {
 	},
 	mounted() {},
 	methods: {
+		setItemSelected4() {
+			this.$emit("setItemSelected4");
+		},
 		// Hàm đặt giá trị
 		setItemSelected3() {
 			this.$emit("setItemSelected3");

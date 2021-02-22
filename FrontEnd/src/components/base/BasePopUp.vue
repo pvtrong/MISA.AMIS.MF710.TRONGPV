@@ -82,7 +82,7 @@ export default {
 			if (this.type == "notify") {
 				if (event.which === 13 || event.which == 27)
 					this.btnCancelOnClick();
-			} else if (this.type == "danger") {
+			} else if (this.type == "danger" && this.isHide == false) {
 				if (event.which === 27) this.btnCancelOnClick();
 				else if (event.which == 13) {
 					this.btnDeleteOnClick(this.className, this.data);

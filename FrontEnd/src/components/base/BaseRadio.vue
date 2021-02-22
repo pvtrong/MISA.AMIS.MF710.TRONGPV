@@ -58,7 +58,6 @@ export default {
 
 		// Hàm xử lý sự kiện người dùng dùng bàn phím để đặt giá trị item
 		setselected(event) {
-			console.log(event);
 			let index = 0;
 			console.log(this.isHide);
 			for (let i = 0; i < this.content.length; i++) {

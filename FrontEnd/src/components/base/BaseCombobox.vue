@@ -62,7 +62,6 @@ export default {
 	methods: {
 		// Hàm xử lý sự kiện khi người dùng gõ phím để tab index
 		setselected(content) {
-			console.log(content);
 			if (this.category === "department") {
 				let index = 0;
 				for (let i = 0; i < this.content.length; i++) {
@@ -90,8 +89,29 @@ export default {
 				if (
 					content.which === 13 &&
 					this.isHide == false &&
-					content.path[0].id !== "txtFullName"
+					content.shiftKey === true &&
+					content.path[0].id !== "txtFullName" &&
+					content.path[0].id !== "txtPosition"
 				) {
+					if (this.getItemSelected().length === 0) {
+						document
+							.getElementById("txtDepartmentId")
+							.classList.add("required-error");
+					}
+					this.$emit("setItemSelected4");
+					this.isHide = true;
+				} else if (
+					content.which === 13 &&
+					this.isHide == false &&
+					content.path[0].id !== "txtFullName" &&
+					content.path[0].id !== "txtPosition"
+				) {
+					if (this.getItemSelected().length === 0) {
+						document
+							.getElementById("txtDepartmentId")
+							.classList.add("required-error");
+					}
+					console.log(this.getItemSelected());
 					this.$emit("setItemSelected3");
 					this.isHide = true;
 				}
@@ -125,6 +145,7 @@ export default {
 
 		// Hàm xổ xuống của combobox
 		showCombobox() {
+			console.log(437948320);
 			document
 				.getElementById("txtDepartmentId")
 				.classList.remove("required-error");

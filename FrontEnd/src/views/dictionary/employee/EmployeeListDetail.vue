@@ -31,7 +31,9 @@
 								</div>
 								<div>
 									<input
-										@keyup.enter="$refs.txtFullName.focus"
+										@keyup.enter.exact="
+											$refs.txtFullName.focus
+										"
 										tabindex="1"
 										@focus="noCheckValidate('EmployeeCode')"
 										@blur="
@@ -52,9 +54,12 @@
 								</div>
 								<div>
 									<input
-										@keyup.enter.prevent="focusCombobox"
+										@keyup.enter.exact="focusCombobox"
 										ref="txtFullName"
 										tabindex="2"
+										@keyup.shift.enter.prevent="
+											$refs.txtEmployeeCode.focus
+										"
 										@focus="noCheckValidate('FullName')"
 										@blur="checkValidateFullName(employee)"
 										id="txtFullName"
@@ -74,6 +79,7 @@
 								</div>
 								<Department
 									@setItemSelected3="setItemSelected3"
+									@setItemSelected4="setItemSelected4"
 									ref="txtDepartmentId"
 									:tabindex="3"
 									@focus="noCheckValidate('DepartmentId')"
@@ -93,11 +99,11 @@
 								</div>
 								<div>
 									<input
-										@keyup.shift.enter.prevent="
-											focusCombobox
-										"
 										@keyup.enter.exact="
 											$refs.txtDateOfBirth.focus
+										"
+										@keyup.shift.enter.prevent="
+											focusCombobox
 										"
 										tabindex="4"
 										ref="txtPosition"
@@ -668,6 +674,9 @@ export default {
 			console.log(6);
 			this.$refs.txtPosition.focus();
 		},
+		setItemSelected4() {
+			this.$refs.txtFullName.focus();
+		},
 		focusCombobox() {
 			if (
 				document
@@ -677,6 +686,7 @@ export default {
 				console.log("blur");
 				this.$emit("showCombobox");
 				document.getElementById("txtFullName").blur();
+				document.getElementById("txtPosition").blur();
 			}
 		},
 		focusInput() {
@@ -820,15 +830,22 @@ export default {
 					console.log("5 " + employeeBanks);
 					employeeBanks.forEach(async function(employeeBank) {
 						debugger;
-						console.log("4" + res2.data[0].employeeId);
-						console.log("5" + employeeBank[[0]]);
-						employeeBank.employeeId = res2.data[0].employeeId;
-						let res3 = await axios.post(
-							"https://localhost:44349/api/EmployeeBanks/",
-							employeeBank
-						);
-						debugger;
-						console.log("res3: 1: " + res3.data);
+						if (
+							!employeeBank.bankName &&
+							!employeeBank.bankNumber &&
+							!employeeBank.bankCity &&
+							!employeeBank.branch
+						) {
+							console.log("4" + res2.data[0].employeeId);
+							console.log("5" + employeeBank[[0]]);
+							employeeBank.employeeId = res2.data[0].employeeId;
+							let res3 = await axios.post(
+								"https://localhost:44349/api/EmployeeBanks/",
+								employeeBank
+							);
+							debugger;
+							console.log("res3: 1: " + res3.data);
+						}
 					});
 					this.$emit("closePopup", true);
 				}
@@ -861,10 +878,17 @@ export default {
 				if (res1 !== undefined) {
 					employeeBanks.forEach(async function(employeeBank) {
 						if (!employeeBank.employeeBankId) {
-							let res3 = await axios.post(
-								"https://localhost:44349/api/EmployeeBanks/",
-								employeeBank
-							);
+							if (
+								!employeeBank.bankName &&
+								!employeeBank.bankNumber &&
+								!employeeBank.bankCity &&
+								!employeeBank.branch
+							) {
+								let res3 = await axios.post(
+									"https://localhost:44349/api/EmployeeBanks/",
+									employeeBank
+								);
+							}
 							console.log("res3: 1: " + res3.data);
 						} else {
 							let res3 = await axios.put(
