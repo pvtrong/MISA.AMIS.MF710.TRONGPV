@@ -2,29 +2,39 @@
 	<div :class="{ isHide: isHide }" class="m-pop-up pop-up-detail">
 		<div class="pop-up-modal"></div>
 		<div class="pop-up-content">
+			<div
+				style="margin: 0px 40px;
+    width: calc(100% - 80px);
+    border-bottom: 1px solid #bbb;"
+			>
+				<div class="icon-danger"></div>
+				<div class="pop-up-body">
+					<div>{{ content }}</div>
+				</div>
+			</div>
 			<div class="pop-up-header">
 				<div class="pop-up-header-title">{{ header }}</div>
 				<div class="pop-up-header-close">
 					<button v-on:click="btnCancelOnClick"><b>x</b></button>
 				</div>
 			</div>
-			<form class="pop-up-body">{{ content }}</form>
 		</div>
 		<div v-if="this.type === 'danger'" class="pop-up-footer">
 			<button
+				style="background-color: #fff; border: 1px solid #bbb; color: #111; font-weight: bold"
 				v-on:click="btnCancelOnClick"
 				id="btnCancel"
 				class="m-btn m-btn-default m-btn-cancel "
 			>
-				Hủy
+				Không
 			</button>
 			<button
 				@keyup.enter="btnDeleteOnClick(className, data)"
 				@click="btnDeleteOnClick(className, data)"
 				id="btnSave"
-				class="m-btn m-btn-default danger"
+				class="m-btn m-btn-default "
 			>
-				<span class="">Xóa</span>
+				<span class="">Có</span>
 			</button>
 		</div>
 		<div v-else-if="this.type === 'notify'" class="pop-up-footer">
@@ -137,17 +147,44 @@ export default {
 	border-radius: 5px 5px 0 0px;
 
 	width: 100%;
-	height: 100%;
+	height: calc(100% - 15px);
+	position: relative;
+	display: flex;
+	margin: 0 auto;
+}
+.m-pop-up .pop-up-content + div {
+	width: calc(100% - 24px);
+	height: calc(100% - 25px);
+	padding: 24px;
+}
+
+.m-pop-up .pop-up-content .icon-danger {
+	background: url("../../assets/content/icon/Sprites.64af8f61.svg") no-repeat -598px -463px;
+	width: 70px;
+	height: 50px;
+	margin-right: 20px;
+	margin-left: 20px;
+	position: absolute;
+	top: 40px;
+	left: 20px;
 }
 
 .m-pop-up .pop-up-content .pop-up-body {
-	width: calc(100% - 48px);
-	height: calc(100% - 90px);
+	width: 352px;
+	height: 63px;
+	display: flex;
+}
+
+.m-pop-up .pop-up-content .pop-up-body div {
+	position: absolute;
+	top: 37px;
+	height: 85px;
+	width: 262px;
+	left: 95px;
 }
 
 .m-pop-up .pop-up-header {
 	display: flex;
-	padding: 24px 24px 0px 24px;
 }
 
 .m-pop-up .pop-up-header .pop-up-header-close {
@@ -191,20 +228,19 @@ export default {
 }
 
 .pop-up-content .pop-up-body {
-	padding: 24px;
 }
 
 .pop-up-footer {
 	display: flex;
-	width: 100%;
-	height: 60px;
-	background-color: #e9ebee;
+	width: 100% !important;
+	height: 89px !important;
 	border-radius: 0 0 5px 5px;
 	align-items: center;
 	justify-content: flex-end;
-
-	padding: 12px 24px;
+	padding: 24px 24px;
+	background-color: #ffffff;
 	box-sizing: border-box;
+	border: none !important;
 }
 
 .pop-up-footer button {
