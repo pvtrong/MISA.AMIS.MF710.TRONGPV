@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FT5M7Sh9VRgDoQ4SEhu5blX4IeeKBcMkWFA8NJWfkQggXvVb1JBN20iW058yUyc3vokMC/3KE+xUzPnYRhtEmg==",
+  "dgSpecHash": "mfxrO5NJWvPBDtAJ+y+jbGAmxGVD+AeJPM1t/xfwAcFnMaGoyRj+jPN/LswQ3RXoQ5R9ATKyZwy0cWXXWmUDEw==",
   "success": true,
-  "projectFilePath": "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.DEMO.API\\MISA.DEMO.API.csproj",
+  "projectFilePath": "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.DEMO.API\\MISA.DEMO.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\dapper\\2.0.78\\dapper.2.0.78.nupkg.sha512",

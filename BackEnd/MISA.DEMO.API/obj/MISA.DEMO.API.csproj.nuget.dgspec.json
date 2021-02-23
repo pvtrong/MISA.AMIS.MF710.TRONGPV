@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.DEMO.API\\MISA.DEMO.API.csproj": {}
+    "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.DEMO.API\\MISA.DEMO.API.csproj": {}
   },
   "projects": {
-    "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.Common\\MISA.Common.csproj": {
+    "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.Common\\MISA.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.Common\\MISA.Common.csproj",
+        "projectUniqueName": "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.Common\\MISA.Common.csproj",
         "projectName": "MISA.Common",
-        "projectPath": "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.Common\\MISA.Common.csproj",
+        "projectPath": "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.Common\\MISA.Common.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.Common\\obj\\",
+        "outputPath": "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -58,14 +58,14 @@
         }
       }
     },
-    "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.DataLayer\\MISA.DataLayer.csproj": {
+    "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.DataLayer\\MISA.DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.DataLayer\\MISA.DataLayer.csproj",
+        "projectUniqueName": "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.DataLayer\\MISA.DataLayer.csproj",
         "projectName": "MISA.DataLayer",
-        "projectPath": "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.DataLayer\\MISA.DataLayer.csproj",
+        "projectPath": "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.DataLayer\\MISA.DataLayer.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.DataLayer\\obj\\",
+        "outputPath": "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.DataLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -82,8 +82,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.Common\\MISA.Common.csproj": {
-                "projectPath": "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.Common\\MISA.Common.csproj"
+              "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.Common\\MISA.Common.csproj": {
+                "projectPath": "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.Common\\MISA.Common.csproj"
               }
             }
           }
@@ -130,14 +130,14 @@
         }
       }
     },
-    "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.DEMO.API\\MISA.DEMO.API.csproj": {
+    "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.DEMO.API\\MISA.DEMO.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.DEMO.API\\MISA.DEMO.API.csproj",
+        "projectUniqueName": "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.DEMO.API\\MISA.DEMO.API.csproj",
         "projectName": "MISA.DEMO.API",
-        "projectPath": "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.DEMO.API\\MISA.DEMO.API.csproj",
+        "projectPath": "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.DEMO.API\\MISA.DEMO.API.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.DEMO.API\\obj\\",
+        "outputPath": "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.DEMO.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -154,11 +154,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.Common\\MISA.Common.csproj": {
-                "projectPath": "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.Common\\MISA.Common.csproj"
+              "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.Common\\MISA.Common.csproj": {
+                "projectPath": "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.Common\\MISA.Common.csproj"
               },
-              "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.Service\\MISA.Service.csproj": {
-                "projectPath": "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.Service\\MISA.Service.csproj"
+              "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.Service\\MISA.Service.csproj": {
+                "projectPath": "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.Service\\MISA.Service.csproj"
               }
             }
           }
@@ -220,14 +220,14 @@
         }
       }
     },
-    "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.Service\\MISA.Service.csproj": {
+    "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.Service\\MISA.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.Service\\MISA.Service.csproj",
+        "projectUniqueName": "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.Service\\MISA.Service.csproj",
         "projectName": "MISA.Service",
-        "projectPath": "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.Service\\MISA.Service.csproj",
+        "projectPath": "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.Service\\MISA.Service.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.Service\\obj\\",
+        "outputPath": "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -244,11 +244,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.Common\\MISA.Common.csproj": {
-                "projectPath": "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.Common\\MISA.Common.csproj"
+              "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.Common\\MISA.Common.csproj": {
+                "projectPath": "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.Common\\MISA.Common.csproj"
               },
-              "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.DataLayer\\MISA.DataLayer.csproj": {
-                "projectPath": "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.DataLayer\\MISA.DataLayer.csproj"
+              "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.DataLayer\\MISA.DataLayer.csproj": {
+                "projectPath": "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.DataLayer\\MISA.DataLayer.csproj"
               }
             }
           }

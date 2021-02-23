@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ma37jTLsR2WMPLDPRlpT2uePvDKCLybyqeQDlKd3bqK64MD7c7C2HI2OHjp5uZSBM2k8jWEBYWtdQhF62tg8YQ==",
+  "dgSpecHash": "zYL8IVVQBab50bign8+uX7K/6qKFD+XbVfQJx81ZKZg/I9CRoCOp1/QuXloGrYunhsltZcrEwnUyGkTbmlLiZA==",
   "success": true,
-  "projectFilePath": "D:\\MISA\\MISA_MF710_PVTRONG_AMIS\\BackEnd\\MISA.Service\\MISA.Service.csproj",
+  "projectFilePath": "C:\\MISA.AMIS.MF710.TRONGPV\\BackEnd\\MISA.Service\\MISA.Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\dapper\\2.0.78\\dapper.2.0.78.nupkg.sha512",
