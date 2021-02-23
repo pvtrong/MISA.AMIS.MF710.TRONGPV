@@ -216,7 +216,21 @@
 						</td>
 						<td style="width: 30px">
 							<BaseDropBox
-								@changeStatusBanking="changeStatusBanking"
+								:status="
+									employee !== null &&
+									employee.employeeBanks !== undefined &&
+									employee.employeeBanks.length > 0
+										? formatStatus(
+												employee.employeeBanks[0].status
+										  )
+										: ''
+								"
+								@changeStatusBanking="
+									changeStatusBanking(
+										employee.employeeId,
+										employee.employeeBanks[0]
+									)
+								"
 								@deleteOnClick="
 									deleteOnClick(
 										[employee.employeeId],
@@ -232,7 +246,9 @@
 			</table>
 		</div>
 		<div class="paging-bar">
-			<div class="paging-record-info">Tổng số: <b></b> Bản ghi</div>
+			<div class="paging-record-info">
+				Tổng số: <b>{{ this.employees[0].totalEmployees }}</b> bản ghi.
+			</div>
 
 			<div class="paging-record-option">
 				<Combobox
@@ -248,10 +264,43 @@
 				>
 				</Combobox>
 			</div>
-			<div class="paging-option">
-				<div>Trước</div>
-				<input type="text" value="1" />
-				<div>Sau</div>
+			<div class="pagination-row">
+				<button
+					:disabled="pagi.pageNumber <= 1"
+					@click="getOffset(pagi.pageNumber - 1)"
+					class="pagination-button"
+				>
+					Trước
+				</button>
+				<span
+					v-for="(item, index) in new Array(getNumberPages)"
+					:key="index"
+				>
+					<button
+						@click="getOffset(index + 1)"
+						class="pagination-button "
+						:class="{
+							active: pagi.pageNumber == index + 1,
+							nonee:
+								getNumberPages > 6 &&
+								index + 1 != 1 &&
+								index + 1 != 2 &&
+								index + 1 != getNumberPages &&
+								index + 1 != getNumberPages - 1 &&
+								index + 1 != pagi.pageNumber,
+						}"
+					>
+						{{ index + 1 }}
+					</button>
+				</span>
+
+				<button
+					:disabled="pagi.pageNumber >= getNumberPages"
+					@click="getOffset(pagi.pageNumber + 1)"
+					class="pagination-button"
+				>
+					Sau
+				</button>
 			</div>
 		</div>
 		<BasePopUp
@@ -301,6 +350,7 @@ export default {
 				category: "pagi",
 				end: true,
 				header: "Số nhân viên/trang",
+				pageNumber: 1,
 			},
 
 			// Dữ liệu của dialog
@@ -368,6 +418,12 @@ export default {
 	},
 
 	methods: {
+		getOffset(index) {
+			console.log(index);
+			this.pagi.pageNumber = index;
+			this.offset = (index - 1) * this.getLimit;
+			this.render();
+		},
 		// Hàm thêm dòng ngân hàng tạm thời
 		addEmployeeBank(data) {
 			if (!data) {
@@ -433,6 +489,8 @@ export default {
 
 		// * Hàm để lấy số nhân viên/1 trang từ component combobox
 		setItemSelected(data) {
+			this.pagi.pageNumber = 1;
+			this.offset = 0;
 			this.pagi.itemSelected = { pagiId: data.id };
 			this.render();
 		},
@@ -528,12 +586,21 @@ export default {
 
 		/// * Hàm render lại dữ liệu khi ấn search
 		changeInput() {
+			this.offset = 0;
+			this.pagi.pageNumber = 1;
 			this.render();
 		},
 
 		//#region Các hàm chức năng
 		// Hàm xử lý sự kiện click nút thay đổi trạng thái của tài khoản ngân hàng
-		changeStatusBanking() {},
+		async changeStatusBanking(employeeId, employeeBank) {
+			employeeBank.status = 1 - employeeBank.status;
+			let res3 = await axios.put(
+				"https://localhost:44349/api/EmployeeBanks/",
+				employeeBank
+			);
+			this.render();
+		},
 
 		// Hàm hiện cảnh báo lỗi
 		async notifyBoard(data) {
@@ -632,6 +699,9 @@ export default {
 	},
 
 	computed: {
+		getNumberPages: function() {
+			return Math.ceil(this.employees[0].totalEmployees / this.getLimit);
+		},
 		getSelected: function() {
 			return this.selected;
 		},
@@ -680,31 +750,36 @@ export default {
 	height: 56px;
 }
 
-.paging-option {
-	display: flex;
-	align-items: center;
-}
-
-.paging-option div:hover {
-}
-
-.paging-option input {
-	height: 22px;
-	width: 35px;
-	padding: 0 4px;
-	text-align: center;
-}
-
-.paging-option div {
-	cursor: pointer;
-	height: 22px;
-	min-width: 5px;
-	padding: 2px 8px;
-	margin: 0 5px;
-}
-
 #btnAdd {
 	border-radius: 30px;
 	padding: 8ox 20px;
+}
+.pagination-button {
+	border: none;
+	cursor: pointer;
+	background-color: #fff;
+	border-radius: 3px;
+	border: 1px solid #fff;
+}
+.pagination-button:hover {
+	border: 1px solid #bbb;
+}
+
+.pagination-button.active {
+	border: 1px solid #bbb !important;
+	font-weight: bold;
+	background-color: #bbb;
+}
+.pagination-button:focus {
+	outline: none;
+}
+
+.pagination-button:disabled {
+	cursor: default;
+	border: none;
+}
+
+.nonee {
+	display: none;
 }
 </style>

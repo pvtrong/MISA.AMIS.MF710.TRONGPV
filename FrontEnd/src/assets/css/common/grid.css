@@ -98,6 +98,18 @@ html > body .grid tbody.scrollContent {
     overflow: auto;
     width: 100%;
 }
+td, th {
+    border-bottom: 1px solid #c7c7c7;
+    border-right: 1px dotted #c7c7c7;
+        border-top: none;
+        border-left: none;
+
+}
+th{
+    border-right: 1px solid #c7c7c7;
+    background-color: #eceef1;
+}
+
     .grid  tbody.scrollContent td, tbody.scrollContent tr.normalRow td {
         background: #fff;
         border-bottom: none;

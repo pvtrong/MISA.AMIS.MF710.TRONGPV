@@ -11,13 +11,17 @@
 		<div v-show="this.isShow === true" class="contentDropBox">
 			<div @click="cloneOnClick">Nhân bản</div>
 			<div @click="deleteOnClick">Xóa</div>
-			<div @click="changeStatusBanking">Ngừng sử dụng</div>
+			<div v-if="status === 'Ngừng sử dụng'" @click="changeStatusBanking">
+				Đang sử dụng
+			</div>
+			<div v-else @click="changeStatusBanking">Ngừng sử dụng</div>
 		</div>
 	</div>
 </template>
 
 <script>
 export default {
+	props: ["status"],
 	created() {
 		// Hàm xử lý sự kiện dropbox được click
 		window.addEventListener("click", this.documentClick);
