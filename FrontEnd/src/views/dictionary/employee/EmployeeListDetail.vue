@@ -614,7 +614,6 @@ export default {
 		//#region Các hàm xử lý sự kiện
 		// Hàm xóa ngân hàng của nhân viên
 		async btnDeleteOneOnClick(employee, employeeBankId) {
-			debugger;
 			let employeeBankIds = [];
 			employeeBankId.forEach(function(item) {
 				employeeBankIds.push(item.employeeBankId);
@@ -673,7 +672,6 @@ export default {
 			this.$refs.txtPhoneNumber.focus();
 		},
 		setItemSelected2() {
-			console.log(7);
 			this.$refs.txtIdentityNumber.focus();
 		},
 		focusGender() {
@@ -681,7 +679,6 @@ export default {
 			document.getElementById("txtDateOfBirth").blur();
 		},
 		setItemSelected3() {
-			console.log(6);
 			this.$refs.txtPosition.focus();
 		},
 		setItemSelected4() {
@@ -693,7 +690,6 @@ export default {
 					.getElementsByClassName("m-pop-up")[0]
 					.classList.contains("isHide")
 			) {
-				console.log("blur");
 				this.$emit("showCombobox");
 				document.getElementById("txtFullName").blur();
 				document.getElementById("txtPosition").blur();
@@ -766,7 +762,6 @@ export default {
 
 		// Hàm xử lý sự kiện nhập bàn phím
 		changeActiveTabDailog(event) {
-			console.log(event);
 			if (event.which === 18) {
 				this.tabDetail = !this.tabDetail;
 			} else if (event.which === 83 && event.ctrlKey === true) {
@@ -792,14 +787,11 @@ export default {
 
 		// * truyền departmentId từ component combobox
 		setDepartmentId(data) {
-			console.log(data);
-			console.log("departmentId: " + data.id);
 			this.employee.departmentId = data.id.toString();
 		},
 
 		// * Hàm để lấy số nhân viên/1 trang từ component combobox
 		setItemSelected(data) {
-			console.log(data);
 			this.employee.gender = data.id;
 		},
 
@@ -808,7 +800,7 @@ export default {
 			var temp = employee;
 			var str = "";
 			let self = this;
-			if (this.mode === "add") {
+			if (this.mode === "add" || this.mode === "clone") {
 				if (temp.departmentId === "") {
 					temp.departmentId = "00000000-0000-0000-0000-000000000000";
 				}
@@ -816,9 +808,6 @@ export default {
 					.post("https://localhost:44349/api/Employees/", temp)
 					.catch(async function(error) {
 						if (error.response) {
-							console.log(self);
-
-							console.log(error.response.data.userMsg[0]);
 							error.response.data.userMsg.forEach(function(item) {
 								str += item + ", ";
 							});
@@ -838,25 +827,18 @@ export default {
 						"https://localhost:44349/api/Employees?employeeCode=" +
 							temp.employeeCode
 					);
-					debugger;
-					console.log("5 " + employeeBanks);
 					employeeBanks.forEach(async function(employeeBank) {
-						debugger;
 						if (
 							!employeeBank.bankName &&
 							!employeeBank.bankNumber &&
 							!employeeBank.bankCity &&
 							!employeeBank.branch
 						) {
-							console.log("4" + res2.data[0].employeeId);
-							console.log("5" + employeeBank[[0]]);
 							employeeBank.employeeId = res2.data[0].employeeId;
 							let res3 = await axios.post(
 								"https://localhost:44349/api/EmployeeBanks/",
 								employeeBank
 							);
-							debugger;
-							console.log("res3: 1: " + res3.data);
 						}
 					});
 					this.$emit("closePopup", true);
@@ -870,9 +852,7 @@ export default {
 					.put("https://localhost:44349/api/Employees/", temp)
 					.catch(async function(error) {
 						if (error.response) {
-							console.log(self);
 							var str = "";
-							console.log(error.response.data.userMsg[0]);
 							error.response.data.userMsg.forEach(function(item) {
 								str += item + ", ";
 							});
@@ -902,13 +882,11 @@ export default {
 									employeeBank
 								);
 							}
-							console.log("res3: 1: " + res3.data);
 						} else {
 							let res3 = await axios.put(
 								"https://localhost:44349/api/EmployeeBanks/",
 								employeeBank
 							);
-							console.log("res3: 2: " + res3.data);
 						}
 					});
 					this.$emit("closePopup", true);
@@ -1105,7 +1083,8 @@ export default {
 	outline: none;
 	cursor: pointer;
 	background-color: #ffffff;
-	background: url(../../../assets/content/img/Sprites.64af8f61.svg) no-repeat;
+	background: url("../../../assets/content/img/Sprites.64af8f61.svg")
+		no-repeat;
 }
 
 .help-btn {

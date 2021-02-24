@@ -24,11 +24,6 @@
         background-position: center;
         align-items: left;
     }
-
-    .m-btn .btn-text {
-        margin-left: 8px;
-    }
-
 .m-second-button {
     border: 1px solid #8d9096;
     background-color: #ffffff;
@@ -45,13 +40,6 @@
     .m-second-button:hover {
         background-color: #d2d3d6;
     }
-
-.m-btn-refresh {
-    background-image: url('../../content/icon/refresh.png');
-    background-repeat: no-repeat;
-    width: 40px;
-    background-position: center;
-}
 
 .btn-pagenumber {
     width: 30px;
@@ -89,20 +77,3 @@
         background-color: #ffffff;
         border: 1px solid #ccc;
     }
-
-    .m-btn-firstpage {
-        background-image: url('../../content/icon/btn-firstpage.svg');
-    }
-
-.m-btn-prev-page {
-    background-image: url('../../content/icon/btn-prev-page.svg');
-}
-
-.m-btn-next-page {
-    background-image: url('../../content/icon/btn-next-page.svg');
-}
-
-.m-btn-lastpage {
-    background-image: url('../../content/icon/btn-lastpage.svg');
-}
-

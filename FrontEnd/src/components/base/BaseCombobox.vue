@@ -111,7 +111,6 @@ export default {
 							.getElementById("txtDepartmentId")
 							.classList.add("required-error");
 					}
-					console.log(this.getItemSelected());
 					this.$emit("setItemSelected3");
 					this.isHide = true;
 				}
@@ -145,7 +144,6 @@ export default {
 
 		// Hàm xổ xuống của combobox
 		showCombobox() {
-			console.log(437948320);
 			document
 				.getElementById("txtDepartmentId")
 				.classList.remove("required-error");

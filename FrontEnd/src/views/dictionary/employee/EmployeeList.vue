@@ -287,7 +287,6 @@
 								index + 1 != 1 &&
 								index + 1 != 2 &&
 								index + 1 != getNumberPages &&
-								index + 1 != getNumberPages - 1 &&
 								index + 1 != pagi.pageNumber,
 						}"
 					>
@@ -339,8 +338,6 @@ import BaseToastMsg from "../../../components/base/BaseToastMsg.vue";
 export default {
 	data() {
 		return {
-			threeDotPrev: 0,
-			threeDotPrev: 0,
 			/// * bộ dữ liệu để filter
 			filter: {
 				keyword: "",
@@ -439,7 +436,6 @@ export default {
 
 	methods: {
 		getOffset(index) {
-			console.log(index);
 			this.pagi.pageNumber = index;
 			this.offset = (index - 1) * this.getLimit;
 			this.render();
@@ -467,7 +463,6 @@ export default {
 
 		// Hàm truyền data vào pop up để mở pop up
 		async notifyDanger(data) {
-			console.log(data.className);
 			if (data.accept === true) {
 				const res = await axios.delete(
 					"https://localhost:44349/api/" + data.className,
@@ -483,7 +478,6 @@ export default {
 
 		/// * Hàm render lại dữ liệu khi click sự kiện
 		async render() {
-			console.log("render");
 			const response = await axios.get(
 				"https://localhost:44349/api/Employees?keyword=" +
 					this.filter.keyword +
@@ -533,7 +527,6 @@ export default {
 			}
 			let str1 = (await parseInt(res.slice(2, 7))) + 1;
 			str += await str1;
-			console.log(str);
 			this.dialog.employee.employeeCode = await str;
 
 			this.isHideParent = await true;
@@ -570,7 +563,7 @@ export default {
 		// Hàm thay đổi tài khoản ngân hàng của nhân viên đó
 		changeEmployeeBanks(data) {
 			let self = this;
-			console.log(data);
+
 			let length = this.employees.length;
 			for (var i = 0; i < length; i++) {
 				if (self.employees[i].employeeId === data.employeeId) {
@@ -626,7 +619,6 @@ export default {
 
 		// Hàm hiện cảnh báo lỗi
 		async notifyBoard(data) {
-			console.log(data);
 			this.popup.content = data.content;
 			this.popup.type = "notify";
 			this.popup.isHide = true;
@@ -646,6 +638,7 @@ export default {
 
 		// Hàm xử lý sự kiện nút nhân bản:
 		async cloneOnClick(employee) {
+			this.dialog.mode = "clone";
 			let res = await this.getNextCode();
 			let str = await "NV";
 			for (
@@ -657,7 +650,6 @@ export default {
 			}
 			let str1 = (await parseInt(res.slice(2, 7))) + 1;
 			str += await str1;
-			console.log("str:" + str);
 
 			this.dialog.employee = await employee;
 			this.dialog.employee.employeeCode = await str;
@@ -668,7 +660,6 @@ export default {
 				this.dialog.employee.dateOfBirth
 			);
 			this.isHideParent = false;
-			this.render();
 		},
 
 		///Hàm xử lý sự kiện click nút sửa

@@ -46,20 +46,17 @@ export default {
 	methods: {
 		// Hàm xử lý sự kiện focus sang cái tab tiếp theo
 		focusNext() {
-			console.log(1234567);
 			this.$emit("setItemSelected2");
 		},
 
 		// Hàm xử lý sự kiện focus vào item (giới tính) tiếP theo
 		focusGender() {
-			console.log("focus");
 			document.getElementById("gender0").focus();
 		},
 
 		// Hàm xử lý sự kiện người dùng dùng bàn phím để đặt giá trị item
 		setselected(event) {
 			let index = 0;
-			console.log(this.isHide);
 			for (let i = 0; i < this.content.length; i++) {
 				if (
 					this.content[i][`genderId`] ===
@@ -75,7 +72,6 @@ export default {
 					this.setItemSelected(this.content[index - 1]);
 				}
 			} else if (event.ctrlKey === true && event.which === 39) {
-				console.log(222222);
 				if (index == 2) {
 					index = -1;
 					this.setItemSelected(this.content[index + 1]);
@@ -112,7 +108,6 @@ export default {
 
 		showCombobox() {
 			this.isHide = !this.isHide;
-			console.log(this.isHide);
 		},
 	},
 };
