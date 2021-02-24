@@ -234,9 +234,6 @@ export default {
 	font-weight: bold;
 }
 
-.pop-up-content .pop-up-body {
-}
-
 .pop-up-footer {
 	display: flex;
 	width: 100% !important;
