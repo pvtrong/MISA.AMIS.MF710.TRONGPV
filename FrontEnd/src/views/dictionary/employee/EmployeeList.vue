@@ -54,7 +54,7 @@
 							class="el-table_30_column_114 is-leaf"
 							fieldName="EmployeeCode"
 						>
-							<div class="cell">Mã nhân viên</div>
+							<div class="cell">MÃ NHÂN VIÊN</div>
 						</th>
 						<th
 							colspan="1"
@@ -62,7 +62,7 @@
 							class="el-table_30_column_115 is-leaf"
 							fieldName="FullName"
 						>
-							<div class="cell">Tên nhân viên</div>
+							<div class="cell">TÊN NHÂN VIÊN</div>
 						</th>
 						<th
 							colspan="1"
@@ -70,7 +70,7 @@
 							class="el-table_30_column_116 is-leaf"
 							fieldName="Position"
 						>
-							<div class="cell">Chức danh</div>
+							<div class="cell">CHỨC DANH</div>
 						</th>
 						<th
 							colspan="1"
@@ -78,7 +78,7 @@
 							class="el-table_30_column_116 is-leaf"
 							fieldName="DepartmentName"
 						>
-							<div class="cell">Tên đơn vị</div>
+							<div class="cell">TÊN ĐƠN VỊ</div>
 						</th>
 						<th
 							colspan="1"
@@ -86,7 +86,7 @@
 							class="el-table_30_column_116 is-leaf"
 							fieldName="BankNumber"
 						>
-							<div class="cell">Số tài khoản</div>
+							<div class="cell">SỐ TÀI KHOẢN</div>
 						</th>
 						<th
 							colspan="1"
@@ -94,7 +94,7 @@
 							class="el-table_30_column_116 is-leaf"
 							fieldName="BankName"
 						>
-							<div class="cell">Tên ngân hàng</div>
+							<div class="cell">TÊN NGÂN HÀNG</div>
 						</th>
 						<th
 							colspan="1"
@@ -102,7 +102,7 @@
 							class="el-table_30_column_116 is-leaf"
 							fieldName="Status"
 						>
-							<div class="cell">Trạng thái</div>
+							<div class="cell">TRẠNG THÁI</div>
 						</th>
 						<th
 							colspan="1"
@@ -110,7 +110,7 @@
 							class="el-table_30_column_116 is-leaf"
 							fieldName="Branch"
 						>
-							<div class="cell">Chi nhánh</div>
+							<div class="cell">CHI NHÁNH</div>
 						</th>
 						<th
 							colspan="1"
@@ -118,7 +118,7 @@
 							class="el-table_30_column_116 is-leaf"
 							fieldName="Feature"
 						>
-							<div class="cell">Chức năng</div>
+							<div class="cell">CHỨC NĂNG</div>
 						</th>
 					</tr>
 				</thead>
@@ -313,10 +313,21 @@
 			:className="this.popup.className"
 			:data="this.popup.data"
 		/>
+		<BaseToastMsg :content="this.toastMsg.content" />
 	</div>
 </template>
 
 <script>
+import { Notyf } from "notyf";
+import "notyf/notyf.min.css"; // for React, Vue and Svelte
+
+// Create an instance of Notyf
+const notyf = new Notyf({
+	position: {
+		x: "center",
+		y: "top",
+	},
+});
 import * as axios from "axios";
 import BaseCheckbox from "../../../components/base/BaseCheckbox.vue";
 import Combobox from "../../../components/base/BaseCombobox.vue";
@@ -324,6 +335,7 @@ import BaseDropBox from "../../../components/base/BaseDropBox.vue";
 import Departments from "../../../components/common/Department.vue";
 import EmployeeListDetail from "./EmployeeListDetail.vue";
 import BasePopUp from "../../../components/base/BasePopUp.vue";
+import BaseToastMsg from "../../../components/base/BaseToastMsg.vue";
 export default {
 	data() {
 		return {
@@ -343,11 +355,10 @@ export default {
 			/// * Dữ liệu phân trang
 			pagi: {
 				pagis: [
-					{ pagiId: 1, pagiName: "10 bản ghi/trang", value: 10 },
-					{ pagiId: 2, pagiName: "20 bản ghi/trang", value: 20 },
-					{ pagiId: 3, pagiName: "30 bản ghi/trang", value: 30 },
-					{ pagiId: 4, pagiName: "50 bản ghi/trang", value: 50 },
-					{ pagiId: 5, pagiName: "100 bản ghi/trang", value: 100 },
+					{ pagiId: 1, pagiName: "20 bản ghi/trang", value: 20 },
+					{ pagiId: 2, pagiName: "30 bản ghi/trang", value: 30 },
+					{ pagiId: 3, pagiName: "50 bản ghi/trang", value: 50 },
+					{ pagiId: 4, pagiName: "100 bản ghi/trang", value: 100 },
 				],
 				itemSelected: { pagiId: 1 },
 				category: "pagi",
@@ -373,6 +384,10 @@ export default {
 				data: [],
 				className: "",
 				content: "Bạn có chắc muốn xóa bản ghi này không?",
+			},
+
+			toastMsg: {
+				content: "",
 			},
 
 			selected: [],
@@ -419,6 +434,7 @@ export default {
 		BaseCheckbox,
 		BasePopUp,
 		BaseDropBox,
+		BaseToastMsg,
 	},
 
 	methods: {
@@ -459,8 +475,8 @@ export default {
 						data: data.id,
 					}
 				);
-
-				this.render();
+				await this.render();
+				notyf.success("Xoá thành công!");
 			}
 			this.popup.isHide = false;
 		},

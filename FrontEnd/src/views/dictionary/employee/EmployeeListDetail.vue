@@ -527,6 +527,16 @@
 </template>
 
 <script>
+import { Notyf } from "notyf";
+import "notyf/notyf.min.css"; // for React, Vue and Svelte
+
+// Create an instance of Notyf
+const notyf = new Notyf({
+	position: {
+		x: "center",
+		y: "top",
+	},
+});
 import * as axios from "axios";
 import Department from "../../../components/common/Department.vue";
 import BaseCombobox from "../../../components/base/BaseCombobox";
@@ -849,6 +859,8 @@ export default {
 							console.log("res3: 1: " + res3.data);
 						}
 					});
+					this.$emit("closePopup", true);
+					notyf.success("Thêm thành công!");
 				}
 			} else {
 				if (temp.departmentId === "") {
@@ -900,6 +912,7 @@ export default {
 						}
 					});
 					this.$emit("closePopup", true);
+					notyf.success("Sửa thành công!");
 				}
 			}
 		},
