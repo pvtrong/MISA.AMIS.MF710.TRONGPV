@@ -15,12 +15,15 @@
 			<div class="pop-up-header">
 				<div class="pop-up-header-title">{{ header }}</div>
 				<div class="pop-up-header-close">
-					<button v-on:click="btnCancelOnClick"><b>x</b></button>
+					<button title="Esc" v-on:click="btnCancelOnClick">
+						<b>x</b>
+					</button>
 				</div>
 			</div>
 		</div>
 		<div v-if="this.type === 'danger'" class="pop-up-footer">
 			<button
+				title="Esc"
 				style="background-color: #fff; border: 1px solid #bbb; color: #111; font-weight: bold"
 				v-on:click="btnCancelOnClick"
 				id="btnCancel"
@@ -29,6 +32,7 @@
 				Không
 			</button>
 			<button
+				title="Enter"
 				@keyup.enter="btnDeleteOnClick(className, data)"
 				@click="btnDeleteOnClick(className, data)"
 				id="btnSave"
@@ -37,7 +41,11 @@
 				<span class="">Có</span>
 			</button>
 		</div>
-		<div v-else-if="this.type === 'notify'" class="pop-up-footer">
+		<div
+			title="Esc"
+			v-else-if="this.type === 'notify'"
+			class="pop-up-footer"
+		>
 			<button @click="btnCancelOnClick" id="btnSave" class="m-btn ">
 				<span class="">Đóng</span>
 			</button>
@@ -123,11 +131,10 @@ export default {
 	z-index: 1000;
 	position: fixed;
 	top: 0;
-	right: 50%;
+	right: calc(50% - 200px);
 	width: 400px;
 	height: 137px;
-	left: 565px;
-	top: 0px;
+	top: calc(50% - 137px);
 }
 
 .pop-up-modal {

@@ -79,7 +79,7 @@ export default {
 }
 #tools-notify {
 	width: 34px;
-	height: 49px;
+	height: 48px;
 	background-image: url("../../assets/content/icon/Sprites.64af8f61.svg");
 	background-position: -783px -17px !important;
 	background-repeat: no-repeat;
@@ -87,7 +87,7 @@ export default {
 
 #tools-help {
 	width: 34px;
-	height: 49px;
+	height: 48px;
 	background-image: url("../../assets/content/icon/Sprites.64af8f61.svg");
 	background-position: -726px -17px !important;
 	background-repeat: no-repeat;
@@ -95,7 +95,7 @@ export default {
 
 #tools-message {
 	width: 34px;
-	height: 49px;
+	height: 48px;
 	background-image: url("../../assets/content/icon/Sprites.64af8f61.svg");
 	background-position: -894px -17px !important;
 	background-repeat: no-repeat;
@@ -103,14 +103,14 @@ export default {
 
 #tools-setting {
 	width: 34px;
-	height: 49px;
+	height: 48px;
 	background-image: url("../../assets/content/icon/Sprites.64af8f61.svg");
 	background-position: -670px -17px !important;
 	background-repeat: no-repeat;
 }
 #tools-threedot {
 	width: 34px;
-	height: 49px;
+	height: 48px;
 	background-image: url("../../assets/content/icon/Sprites.64af8f61.svg");
 	background-position: -563px -17px !important;
 	background-repeat: no-repeat;

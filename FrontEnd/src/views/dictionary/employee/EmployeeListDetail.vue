@@ -625,8 +625,8 @@ export default {
 
 		// Xử lý sự kiện nút cất và thêm
 		async btnAddAndSaveOnClick(employee) {
-			this.checkValidate(employee);
-			this.putEmployee(employee, employee.employeeBanks);
+			await this.checkValidate(employee);
+			await this.putEmployee(employee, employee.employeeBanks);
 			this.$emit("closePopup", false);
 		},
 
@@ -753,6 +753,8 @@ export default {
 		changAciveTabDailogFalse() {
 			this.tabDetail = false;
 		},
+
+		// Hàm xử lý sự kiện nhập bàn phím
 		changeActiveTabDailog(event) {
 			console.log(event);
 			if (event.which === 18) {
@@ -847,7 +849,6 @@ export default {
 							console.log("res3: 1: " + res3.data);
 						}
 					});
-					this.$emit("closePopup", true);
 				}
 			} else {
 				if (temp.departmentId === "") {
@@ -964,6 +965,8 @@ export default {
 			document.onmousemove = null;
 		},
 	},
+
+	// Hàm focus vào mã khi mở form
 	mounted() {
 		this.$watch(
 			"isHide",
@@ -1034,8 +1037,8 @@ export default {
 	right: 50%;
 	width: 900px;
 	height: 625px;
-	left: -1100px;
-	top: -25px;
+	left: -1270px;
+	top: 50px;
 	color: rgb(17, 17, 17);
 }
 

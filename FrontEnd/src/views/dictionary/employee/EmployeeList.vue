@@ -127,6 +127,7 @@
 						class="el-table__row"
 						v-for="employee in employees"
 						:key="employee.employeeId"
+						@dblclick="rowOnClick({ ...employee })"
 					>
 						<td>
 							<div class="cell">
@@ -326,6 +327,8 @@ import BasePopUp from "../../../components/base/BasePopUp.vue";
 export default {
 	data() {
 		return {
+			threeDotPrev: 0,
+			threeDotPrev: 0,
 			/// * bộ dữ liệu để filter
 			filter: {
 				keyword: "",
@@ -376,6 +379,7 @@ export default {
 		};
 	},
 
+	// ban đầu lấy dữ liệu để render
 	async created() {
 		const response = await axios.get(
 			"https://localhost:44349/api/Employees?keyword=" +
@@ -515,6 +519,7 @@ export default {
 			str += await str1;
 			console.log(str);
 			this.dialog.employee.employeeCode = await str;
+
 			this.isHideParent = await true;
 			this.isHideParent = await false;
 		},
@@ -532,12 +537,13 @@ export default {
 			const employeeBanks = await axios.get(
 				"https://localhost:44349/api/EmployeeBanks"
 			);
-			this.arrBanks = employeeBanks.data;
+			this.arrBanks = await employeeBanks.data;
 			await this.render();
-			if (value === true) this.isHideParent = value;
-			else {
+			if (value === false) {
+				await this.btnAddOnClick();
 				this.isHideParent = false;
-				this.btnAddOnClick();
+			} else {
+				this.isHideParent = value;
 			}
 		},
 		// popup để xử lý nút hủy sẽ đỡ nặng
