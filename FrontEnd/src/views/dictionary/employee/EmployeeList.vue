@@ -486,6 +486,7 @@ export default {
 					"&offsetParam=" +
 					this.offset
 			);
+			debugger;
 			let self = this;
 			this.employees = await response.data;
 			var empty = [];
@@ -511,6 +512,8 @@ export default {
 
 		// * Hàm xử lý sự kiện thêm
 		async btnAddOnClick() {
+			debugger;
+			this.dialog.mode = "add";
 			this.dialog.employee = await {
 				departmentId: "",
 				gender: 0,
@@ -549,15 +552,18 @@ export default {
 			this.arrBanks = await employeeBanks.data;
 			await this.render();
 			if (value === false) {
+				debugger;
 				await this.btnAddOnClick();
 				this.isHideParent = false;
 			} else {
 				this.isHideParent = value;
 			}
+			await this.render();
 		},
 		// popup để xử lý nút hủy sẽ đỡ nặng
 		closePopup2() {
 			this.isHideParent = true;
+			this.render();
 		},
 
 		// Hàm thay đổi tài khoản ngân hàng của nhân viên đó

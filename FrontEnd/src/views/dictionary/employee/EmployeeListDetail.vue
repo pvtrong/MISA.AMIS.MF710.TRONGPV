@@ -828,18 +828,11 @@ export default {
 							temp.employeeCode
 					);
 					employeeBanks.forEach(async function(employeeBank) {
-						if (
-							!employeeBank.bankName &&
-							!employeeBank.bankNumber &&
-							!employeeBank.bankCity &&
-							!employeeBank.branch
-						) {
-							employeeBank.employeeId = res2.data[0].employeeId;
-							let res3 = await axios.post(
-								"https://localhost:44349/api/EmployeeBanks/",
-								employeeBank
-							);
-						}
+						employeeBank.employeeId = res2.data[0].employeeId;
+						let res3 = await axios.post(
+							"https://localhost:44349/api/EmployeeBanks/",
+							employeeBank
+						);
 					});
 					this.$emit("closePopup", true);
 					notyf.success("Thêm thành công!");
@@ -871,17 +864,10 @@ export default {
 				if (res1 !== undefined) {
 					employeeBanks.forEach(async function(employeeBank) {
 						if (!employeeBank.employeeBankId) {
-							if (
-								!employeeBank.bankName &&
-								!employeeBank.bankNumber &&
-								!employeeBank.bankCity &&
-								!employeeBank.branch
-							) {
-								let res3 = await axios.post(
-									"https://localhost:44349/api/EmployeeBanks/",
-									employeeBank
-								);
-							}
+							let res3 = await axios.post(
+								"https://localhost:44349/api/EmployeeBanks/",
+								employeeBank
+							);
 						} else {
 							let res3 = await axios.put(
 								"https://localhost:44349/api/EmployeeBanks/",
@@ -1028,7 +1014,7 @@ export default {
 	right: 50%;
 	width: 900px;
 	height: 625px;
-	left: -1270px;
+	left: -999px;
 	top: 50px;
 	color: rgb(17, 17, 17);
 }
